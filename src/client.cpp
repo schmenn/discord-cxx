@@ -11,7 +11,12 @@ namespace discord {
     }
 
     Client::Client(ClientOptions options) noexcept :
-        isConnected(false) {
+        tokenBuffer(),
+        isConnected(false),
+        userCache(),
+        guildMemberCache(),
+        eventRouter(),
+        options(options) {
         //
     }
 
