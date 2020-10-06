@@ -2,9 +2,9 @@
 #include <map>
 #include <future>
 #include "client_options.h"
-#include "snowflake.h"
-#include "user.h"
-#include "guild_member.h"
+#include "discord-cxx/api/snowflake.h"
+#include "discord-cxx/api/user.h"
+#include "discord-cxx/api/guild_member.h"
 #include "event_router.h"
 
 namespace discord {

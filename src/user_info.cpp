@@ -1,4 +1,4 @@
-#include <discord-cxx/user_info.h>
+#include <discord-cxx/api/user_info.h>
 
 namespace discord {
     std::string UserInfo::makeTag() const noexcept {

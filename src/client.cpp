@@ -1,4 +1,4 @@
-#include <discord-cxx/client_events.h>
+#include <discord-cxx/events.h>
 #include <discord-cxx/client.h>
 
 namespace discord {

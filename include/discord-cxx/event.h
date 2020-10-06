@@ -1,10 +1,15 @@
 #pragma once
 
 #include <string>
-#include "event_id.h"
+#include "event_kind.h"
 
 namespace discord {
     struct Event {
-        static constexpr EventId id = EventId::Default;
+        const EventKind kind;
+
+        explicit Event(EventKind kind) :
+            kind(kind) {
+            //
+        }
     };
 }
