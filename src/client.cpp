@@ -2,14 +2,6 @@
 #include <discord-cxx/client.h>
 
 namespace discord {
-    void Client::setIsConnected(bool isConnected) {
-        this->isConnected = isConnected;
-
-        this->eventRouter.trigger($ClientConnectionStateChanged{
-            .isConnected = this->isConnected
-        });
-    }
-
     Client::Client(ClientOptions options) noexcept :
         tokenBuffer(),
         isConnected(false),
@@ -45,25 +37,27 @@ namespace discord {
         return this->eventRouter.trigger(event);
     }
 
-    std::future<bool> Client::connect(std::string token) {
+    bool Client::connect(std::string token) {
         if (this->isConnected) {
             return false;
         }
 
         this->tokenBuffer = token;
-        this->setIsConnected(true);
+        this->isConnected = true;
 
         // TODO
+
+        return true;
     }
 
-    std::future<bool> Client::disconnect() {
+    bool Client::disconnect() {
         if (!this->isConnected) {
             return false;
         }
 
         // TODO
 
-        this->setIsConnected(false);
+        this->isConnected = false;
 
         return true;
     }

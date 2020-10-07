@@ -1,0 +1,6 @@
+[submodule "libs/rapidjson"]
+    path = libs/rapidjson
+    url = https://github.com/discord-cxx/rapidjson
+[submodule "libs/websocketpp"]
+	path = libs/websocketpp
+	url = https://github.com/discord-cxx/websocketpp

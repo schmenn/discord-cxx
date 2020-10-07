@@ -3,6 +3,10 @@ project(discord-cxx)
 
 set(CMAKE_CXX_STANDARD 20)
 
+# Dependencies.
+find_package(cpprestsdk REQUIRED)
+
+# Setup sources.
 file(
     GLOB_RECURSE SOURCES
     "include/${PROJECT_NAME}/*.h"
@@ -13,12 +17,20 @@ file(
 add_library("${PROJECT_NAME}" ${SOURCES})
 
 target_include_directories(
-    ${PROJECT_NAME} PUBLIC
+    "${PROJECT_NAME}" PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/libs>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
+# Link dependencies.
+target_link_libraries(
+    "${PROJECT_NAME}" PRIVATE
+    cpprestsdk::cpprest
+)
+
+# Setup install targets.
 install(
     TARGETS "${PROJECT_NAME}"
     EXPORT ${PROJECT_NAME}-config LIBRARY

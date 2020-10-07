@@ -1,6 +1,5 @@
 #include <string>
 #include <map>
-#include <future>
 #include "client_options.h"
 #include "discord-cxx/api/snowflake.h"
 #include "discord-cxx/api/user.h"
@@ -48,12 +47,12 @@ namespace discord {
          * Attempt to connect the client. Immediately returns false
          * if the client is already connected.
          */
-        std::future<bool> connect(std::string token);
+        bool connect(std::string token);
 
         /**
          * Attempt to disconnect the client. Immediately returns false
          * if the client is already disconnected.
          */
-        std::future<bool> disconnect();
+        bool disconnect();
     };
 }

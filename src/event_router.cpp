@@ -9,7 +9,7 @@ namespace discord {
 
     size_t EventRouter::trigger(const Event &event) {
         size_t invokedCounter = 0;
-        uint64_t eventId = (uint64_t)event.id;
+        uint64_t eventId = (uint64_t)event.kind;
 
         if (this->interceptors.contains(eventId)) {
             if (!this->interceptors.at(eventId)(event)) {
