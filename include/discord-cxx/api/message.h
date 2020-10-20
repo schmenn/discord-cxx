@@ -71,7 +71,7 @@ namespace discord {
         /**
          * Array of mentioned roles
          */
-        std::vector<Role> mentionedRoles;
+        std::vector<Role> mentionedRoles; // mention_roles
 
         // TODO: continue this
     };
