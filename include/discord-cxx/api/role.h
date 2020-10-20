@@ -21,7 +21,7 @@ namespace discord {
         uint32_t color; // color
 
         /**
-         * Specifies if the role is pinned to the user listing.
+         * Specifies whether the role is pinned to the user listing.
          */
         bool isHoisted; // hoist
 
@@ -32,7 +32,7 @@ namespace discord {
         uint16_t position; // position
 
         /**
-         * Bit set of role's Permissions.
+         * Bit set of role's permissions.
          */
         std::string permissions; // permissions
 
