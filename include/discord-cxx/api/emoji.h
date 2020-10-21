@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <string>
+#include <vector>
 #include "snowflake.h"
 #include "user_info.h"
 
@@ -18,7 +19,10 @@ namespace discord {
          */
         std::optional<std::string> name;
 
-        // TODO: 'roles'
+        /**
+         * Array of role ids.
+         */
+        std::optional<std::vector<Snowflake>> roles; // roles
 
         /**
          * The user that created this emoji.
