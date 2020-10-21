@@ -1,13 +1,19 @@
 #pragma once
 
 #include <vector>
-#include <optional>
 #include <string>
+#include <optional>
+#include "role.h"
+#include "embed.h"
+#include "reaction.h"
 #include "snowflake.h"
 #include "user_info.h"
-#include "guild_member.h"
+#include "user_info.h"
 #include "timestamp.h"
-#include "role.h"
+#include "attachment.h"
+#include "guild_member.h"
+#include "channel_mention.h"
+
 
 namespace discord {
     struct Message {
@@ -69,10 +75,166 @@ namespace discord {
         std::vector<UserInfo> mentions; // mentions
 
         /**
-         * Array of mentioned roles
+         * Array of mentioned role ids.
          */
-        std::vector<Role> mentionedRoles; // mention_roles
+        std::vector<Snowflake> mentionedRoles; // mention_roles
 
         // TODO: continue this
+        /**
+         * Array of mentioned channels.
+         */
+        std::optional<std::vector<ChannelMention>> mentionedChannels; // mention_channels
+
+        /**
+         * Array of attachements.
+         */
+        std::vector<Attachment> attachments; // attachments
+
+        /**
+         * Array of embeds.
+         */
+        std::vector<Embed> embeds; // embeds
+
+        /**
+         * Array of reactions.
+         */
+        std::optional<std::vector<Reaction>> reactions; // reactions
+
+        // TODO: 'nonce'
+
+        /**
+         * Specifies whether this message is pinned.
+         */
+        bool isPinned; // pinned
+
+        /**
+         * If the message was sent by a webhook, this is the webhook's id.
+         */
+        std::optional<Snowflake> webhookId; // webhook_id
+
+        /**
+         * Type of the message.
+         */
+        MessageType type; // type
+
+        // TODO: Message Activity.
+
+        /**
+         * The message activity.
+         */
+        MessageActivity activity;
+
+        /**
+         * An application object which is send with
+         * Rich Resence-related chat embeds.
+         */
+        std::optional<MessageApplication> application; // application
+
+        /**
+         * A message reference.
+         */
+        MessageReference messageReference; // message_reference
+
+        /**
+         * The message flags.
+         */
+        MessageFlags flags; // flags
+    };
+    struct MessageApplication {
+        /**
+         * The id of the application.
+         */
+        Snowflake id; // id
+
+        /**
+         * The id of the embed's image asset.
+         */
+        std::optional<std::string> coverImage; // cover_image
+
+        /**
+         * The description of the application.
+         */
+        std::string description; // description
+
+        /**
+         * The id of the application's icon.
+         */
+        std::optional<std::string> icon; // icon
+
+        /**
+         * The name of the application.
+         */
+        std::string name; // name
+    };
+    struct MessageReference {
+        /**
+         * The id of the originating message.
+         */
+        Snowflake id; // message_id
+
+        /**
+         * The id of the originating message's channel.
+         */
+        Snowflake channelId; // channel_id
+
+        /**
+         * The id of the orignating message's guild.
+         */
+        Snowflake guildId; // guild_id
+    };
+    enum class MessageActivity {
+        None,
+
+        Join = 1 << 1,
+
+        Spectate = 1 << 2,
+
+        Listen = 1 << 3,
+
+        JoinRequest = 1 << 5
+    };
+    enum class MessageFlags {
+        None,
+
+        Crossposted = 1 << 0,
+
+        IsCrossposted = 1 << 1,
+
+        SuppressEmbeds = 1 << 2,
+
+        SourceMessageDeleted = 1 << 3,
+
+        Urgent = 1 << 4
+    };
+    enum class MessageType {
+        Default,
+
+        RecipientAdd,
+
+        RecipientRemove,
+
+        Call,
+
+        ChannelNameChange,
+
+        ChannelIconChange,
+
+        ChannelPinnedMessage,
+
+        GuildMemberJoin,
+
+        UserPremiumGuildSubscription,
+
+        UserPremiumGuildSubscriptionTier1,
+
+        UserPremiumGuildSubscriptionTier2,
+
+        UserPremiumGuildSubscriptionTier3,
+
+        ChannelFollowAdd,
+
+        GuildDiscoveryDisqualified,
+
+        GuildDiscoveryRequalified
     };
 }
