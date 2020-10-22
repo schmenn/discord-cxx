@@ -25,14 +25,14 @@ namespace discord {
         std::optional<Snowflake> guildId; // guild_id
 
         /**
-         * The position of the channel in the guild. (only if channel is in a guild).
+         * The position of the channel. (only if channel is in a guild).
          */
         std::optional<uint16_t> position; // position
 
         /**
          * Array of overwrite objects.
          */
-        std::vector<std::optional<PermissionOverwrite>> name;
+        std::optional<std::vector<PermissionOverwrite>> name;
 
         /**
          * Name of the channel.
@@ -50,7 +50,7 @@ namespace discord {
         std::optional<bool> isNsfw; // nsfw
 
         /**
-         * The last message which was sent in this channel.
+         * The id of the last message which was sent in this channel.
          */
         std::optional<Snowflake> lastMessageId; // last_message_id
 
@@ -75,7 +75,7 @@ namespace discord {
         std::optional<std::vector<UserInfo>> recipients; // recipients
 
         /**
-         * The Icon hash.
+         * The icon hash.
          */
         std::optional<std::string> iconHash; // icon
 
