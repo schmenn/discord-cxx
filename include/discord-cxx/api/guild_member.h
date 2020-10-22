@@ -9,9 +9,9 @@
 
 namespace discord {
     struct GuildMember {
+        // TODO: "The field user won't be included in the member object attached to MESSAGE_CREATE and MESSAGE_UPDATE gateway events."
         /**
          * The user object of the member.
-         * WONT BE INCLUDED IN 'MESSAGE_CREATE' AND 'MESSAGE_UPDATE' EVENTS
          */
         std::optional<UserInfo> user; // user
 

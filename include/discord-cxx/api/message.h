@@ -140,6 +140,7 @@ namespace discord {
          */
         MessageFlags flags; // flags
     };
+
     struct MessageApplication {
         /**
          * The id of the application.
@@ -166,6 +167,7 @@ namespace discord {
          */
         std::string name; // name
     };
+
     struct MessageReference {
         /**
          * The id of the originating message.
@@ -182,6 +184,7 @@ namespace discord {
          */
         Snowflake guildId; // guild_id
     };
+
     enum class MessageActivity {
         None,
 
@@ -193,6 +196,7 @@ namespace discord {
 
         JoinRequest = 1 << 5
     };
+
     enum class MessageFlags {
         None,
 
@@ -206,6 +210,7 @@ namespace discord {
 
         Urgent = 1 << 4
     };
+
     enum class MessageType {
         Default,
 

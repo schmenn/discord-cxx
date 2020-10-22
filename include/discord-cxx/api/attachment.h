@@ -42,5 +42,4 @@ namespace discord {
          */
         std::optional<uint16_t> width; // width
     };
-
 }

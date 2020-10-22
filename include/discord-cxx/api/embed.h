@@ -73,6 +73,7 @@ namespace discord {
          */
         std::optional<std::vector<EmbedField>> fields; // fields+
     };
+
     struct EmbedFooter {
         /**
          * The footer text.
@@ -89,6 +90,7 @@ namespace discord {
          */
         std::optional<std::string> proxyIconUrl; // proxy_icon_url
     };
+
     struct EmbedImage {
         /**
          * The image url.
@@ -110,6 +112,7 @@ namespace discord {
          */
         std::optional<uint16_t> width; // width
     };
+
     struct EmbedThumbnail {
         /**
          * The thumbnail image url.
@@ -131,6 +134,7 @@ namespace discord {
          */
         std::optional<uint16_t> width; // width
     };
+
     struct EmbedVideo {
         /**
          * The url of the video.
@@ -147,6 +151,7 @@ namespace discord {
          */
         std::optional<uint16_t> width; // width
     };
+
     struct EmbedProvider {
         /**
          * The name of the provider.
@@ -158,6 +163,7 @@ namespace discord {
          */
         std::optional<std::string> url; // url
     };
+
     struct EmbedAuthor {
         /**
          * The name of the author.
@@ -179,6 +185,7 @@ namespace discord {
          */
         std::optional<std::string> proxyIconUrl; // proxy_icon_url
     };
+
     struct EmbedField {
         /**
          * The name of the field.
@@ -195,5 +202,4 @@ namespace discord {
          */
         std::optional<bool> isInline; // inline
     };
-
 }
