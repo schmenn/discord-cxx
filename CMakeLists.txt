@@ -3,6 +3,8 @@ project(discord-cxx)
 
 set(CMAKE_CXX_STANDARD 20)
 
+find_package(cpprestsdk QUIET)
+
 # Download & build cpprestsdk if it's not installed on
 # the system, via CMake's FetchContent.
 if(NOT cpprestsdk_FOUND)
